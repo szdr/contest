@@ -24,6 +24,7 @@ void shortest_path(int s) {
                 update = true;
             }
         }
+        // no change
         if (!update) {
             break;
         }
