@@ -2,21 +2,20 @@ typedef long long LL;
 
 // a+b (mod p)
 LL add_mod(int a, int b, int p) {
-    LL d = a + b;
+    LL d = (a % p) + (b % p);
     return d % p;
 }
 
 // a-b (mod p)
 LL sub_mod(int a, int b, int p) {
-    LL d = a + p;
-    d -= b;
+    LL d = (a % p) - (b % p);
     return d % p;
 }
 
 // a*b (mod p)
 LL mul_mod(int a, int b, int p) {
     LL d = (a % p) * (b % p);
-    return d;
+    return d % p;
 }
 
 // a^b (mod p)
