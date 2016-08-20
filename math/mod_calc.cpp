@@ -38,3 +38,24 @@ LL div_mod(int a, int b, int p) {
     LL pos_p_2 = power_mod(b, p - 2, p);
     return (a * pos_p_2) % p;
 }
+
+const int MAX = 100;
+LL fact[MAX];
+void fact_mod(int n, int p) {
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            fact[i] = 1;
+        } else {
+            fact[i] = fact[i-1] * i % p;
+        }
+    }
+}
+
+LL comb_mod(int n, int r, int p) {
+    LL res = fact[n];
+    LL a = power_mod(fact[n - r], p - 2, p);
+    LL b = power_mod(fact[r], p - 2, p);
+    res = res * a % p;
+    res = res * b % p;
+    return res;
+}
