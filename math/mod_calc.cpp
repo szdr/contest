@@ -8,7 +8,7 @@ LL add_mod(int a, int b, int p) {
 
 // a-b (mod p)
 LL sub_mod(int a, int b, int p) {
-    LL d = (a % p) - (b % p);
+    LL d = (a % p - b % p + p) % p;
     return d % p;
 }
 
