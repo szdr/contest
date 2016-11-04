@@ -26,7 +26,7 @@ void dijkstra(int s) {
             continue;
         }
         for (int i = 0; i < G[v].size(); i++) {
-            edge e = G[V][i];
+            edge e = G[v][i];
             // relax
             if (d[e.to] > d[v] + e.cost) {
                 d[e.to] = d[v] + e.cost;
