@@ -25,7 +25,8 @@ struct RMQ {
         }
     }
 
-    // 呼び出しはquery(s, t, 0, 0, n)
+    // [a, b)の最小値を求める
+    // 呼び出しはquery(s, t, 0, 0, rmq.n)
     int query(int s, int t, int k, int l, int r) {
         if (r <= s || t <= l) return INT_MAX;
 
