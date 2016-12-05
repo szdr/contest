@@ -1,20 +1,22 @@
-#include <climits>
 #include <algorithm>
 #include <vector>
 #include <queue>
+#include <limits>
 using namespace std;
-#define MAX_V 1000
-#define INF INT_MAX/3
-struct edge {int to, cost; };
-typedef pair<int, int> P; // (minimum distance, vertex id)
 
-int V;
+#define MAX_V 1000000
+typedef int DistanceT;
+const DistanceT DIST_INF = numeric_limits<DistanceT>::max() / 2;
+struct edge {int to; DistanceT cost; };
+typedef pair<DistanceT, int> P; // (minimum distance, vertex id)
+
 vector<edge> G[MAX_V];
-int d[MAX_V];
+DistanceT d[MAX_V];
 
+// O((|V|+|E|)log|V|)
 void dijkstra(int s) {
     priority_queue<P, vector<P>, greater<P> > que;
-    fill(d, d + V, INF);
+    fill(d, d + MAX_V, DIST_INF);
     d[s] = 0;
     que.push(P(0, s));
 
